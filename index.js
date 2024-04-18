@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const skillPoints = event.currentTarget.nextElementSibling; // Targeting the skill-points div next to the image
 
         if (event.type === 'mouseover') {
-            skillPoints.textContent = `Driver: ${driver.rating}`;
+            skillPoints.textContent = `Driver rating: ${driver.rating}`;
             skillPoints.style.display = 'block';
         } else if (event.type === 'mouseout') {
             skillPoints.style.display = 'none';

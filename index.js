@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const searchBar = document.getElementById('search-bar');
     const driversList = document.getElementById('drivers-list');
+    const selectDriversButton = document.getElementById('selectDriversButton');
+    const randomizeTeamsButton = document.getElementById('randomizeTeamsButton');
+    const simulateRaceButton = document.getElementById('simulateRaceButton');
+    const userTeamContainer = document.getElementById('userTeam');
+    const raceResultsContainer = document.getElementById('raceResults');
     let drivers; // Define drivers array in the outer scope
+    let selectedDrivers = [];
 
     // Function to display driver's full details
     function displayDriverDetails(event) {
@@ -17,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const skillPoints = event.currentTarget.nextElementSibling; // Targeting the skill-points div next to the image
 
         if (event.type === 'mouseover') {
-            skillPoints.textContent = `Skill Points: ${driver.rating}`;
+            skillPoints.textContent = `Driver: ${driver.rating}`;
             skillPoints.style.display = 'block';
         } else if (event.type === 'mouseout') {
             skillPoints.style.display = 'none';
@@ -65,33 +71,98 @@ document.addEventListener('DOMContentLoaded', function() {
             img.alt = driver.name;
             img.dataset.id = driver.id;
 
-            const p = document.createElement('p');
-            
-
             const skillPoints = document.createElement('div');
             skillPoints.classList.add('skill-points');
             skillPoints.style.display = 'none';
 
-            driverElement.appendChild(nameContainer); // Append the name container above the image
-            driverElement.appendChild(teamContainer); // Append the team container below the name
+            driverElement.appendChild(nameContainer);
+            driverElement.appendChild(teamContainer);
             driverElement.appendChild(img);
-            driverElement.appendChild(p);
             driverElement.appendChild(skillPoints);
 
             driversList.appendChild(driverElement);
         });
-        attachMouseEvents(drivers); // Attach mouse events after displaying drivers
+        attachMouseEvents(drivers);
     }
+
+    // Function to select drivers and move them to the user's team
+    function selectDrivers() {
+        selectedDrivers = [];
+        const driverCards = document.querySelectorAll('.driver');
+        driverCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const driverId = this.querySelector('img').dataset.id;
+                const driver = drivers.find(driver => driver.id === driverId);
+                if (selectedDrivers.length < 2 && !selectedDrivers.includes(driver)) {
+                    selectedDrivers.push(driver);
+                    userTeamContainer.appendChild(this.cloneNode(true));
+                }
+            });
+        });
+    }
+
+    // Function to randomly shuffle an array
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Function to randomly assign the remaining drivers to teams of two
+    function randomizeTeams() {
+        const remainingDrivers = drivers.filter(driver => !selectedDrivers.includes(driver));
+        const shuffledDrivers = shuffleArray(remainingDrivers); // Shuffle the remaining drivers
+        const teams = [];
+        for (let i = 0; i < shuffledDrivers.length; i += 2) {
+            teams.push([shuffledDrivers[i], shuffledDrivers[i + 1]]);
+        }
+        return teams;
+    }
+
+    // Function to simulate the race and display the winner
+function simulateRace() {
+    const teams = randomizeTeams(); // Get the teams from randomizeTeams function
+
+    // Include selected drivers' team in the race results
+    if (selectedDrivers.length > 0) {
+        teams.push(selectedDrivers.map(driver => ({ name: driver.name, rating: driver.rating, team: driver.team })));
+    }
+
+    // Calculate total rating for each team
+    teams.forEach(team => {
+        team.totalRating = Array.isArray(team) ? team[0].rating + team[1].rating : team.rating;
+    });
+
+    // Sort teams based on total rating in descending order
+    teams.sort((a, b) => b.totalRating - a.totalRating);
+
+    let results = '';
+
+    // Display teams in places 1-10
+    for (let i = 0; i < Math.min(teams.length, 10); i++) {
+        if (Array.isArray(teams[i])) {
+            results += `${i + 1}. ${teams[i][0].name} - ${teams[i][1].name} (Total Rating: ${teams[i].totalRating})\n`;
+        } else {
+            results += `${i + 1}. ${teams[i].name} (Rating: ${teams[i].rating})\n`;
+        }
+    }
+
+    // Update the race results container in the HTML
+    raceResultsContainer.textContent = `Race Results:\n${results}`;
+}
 
     // Fetch drivers data from db.json file
     fetch('db.json')
         .then(response => response.json())
         .then(data => {
-            drivers = data.Drivers; // Assuming "Drivers" is the key for the array in db.json
+            drivers = data.Drivers;
             displayDrivers(drivers);
-
-            // Event listener for search bar input
             searchBar.addEventListener('input', filterDrivers);
+            selectDriversButton.addEventListener('click', selectDrivers);
+            randomizeTeamsButton.addEventListener('click', randomizeTeams);
+            simulateRaceButton.addEventListener('click', simulateRace);
         })
         .catch(error => console.error('Error fetching drivers data:', error));
 });

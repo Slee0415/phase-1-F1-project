@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaR5GrEDSrIoyLFLMHuEemyzgcdpdvKk0byw&s);
     color: #000000;
     text-align: center;
 }
@@ -42,3 +42,12 @@ h1 {
 .search-bar {
     margin-bottom: 20px;
 }
+.race-results-container {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+

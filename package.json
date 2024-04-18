@@ -1,0 +1,11 @@
+{
+  "name": "phase-1-f1-project",
+  "version": "1.0.0",
+  "description": "- Design and architect features across a frontend\r - Communicate and collaborate in a technical environment\r - Integrate JavaScript and an external API\r - Debug issues in small- to medium-sized projects\r - Build and iterate on a project MVP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

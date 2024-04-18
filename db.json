@@ -1,0 +1,185 @@
+{
+    "Drivers": [
+        {
+          "id": "1",
+          "name": "Max Verstappen",
+          "team": "Red Bull Racing",
+          "image": "./assets/Max_Verstappen.jpg",
+          "rating": 100,
+          "comment": "Simply the best.",
+          "country": "Netherlands"
+        },
+        {
+          "id": "11",
+          "name": "Sergio Perez",
+          "team": "Red Bull Racing",
+          "image": "./assets/Sergio_Perez.jpg",
+          "rating": 90,
+          "comment": "Veteran and Mexican motorsport hero.",
+          "country": "Mexico"
+        },
+        {
+          "id": "16",
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "image": "./assets/Charles_Leclerc.jpg",
+          "rating": 96,
+          "comment": "A true championship contender.",
+          "country": "Monaco"
+        },
+        {
+          "id": "55",
+          "name": "Carlos Sainz",
+          "team": "Ferrari",
+          "image": "./assets/Carlos_Sainz.jpg",
+          "rating": 95,
+          "comment": "One of the top drivers on the grid and the future of Ferrari.",
+          "country": "Spain"
+        },
+        {
+          "id": "4",
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "image": "./assets/Lando_Norris.jpg",
+          "rating": 90,
+          "comment": "McLaren's young top driver looking to break into the top of the field.",
+          "country": "United Kingdom"
+        },
+        {
+            "id": "81",
+            "name": "Oscar Piastri",
+            "team": "McLaren",
+            "image": "./assets/Oscar_Piastri.jpg",
+            "rating": 88,
+            "comment": "Sophomore driver looking to prove he belongs at the top after a successful first year.",
+            "country": "Australia"
+          },
+          {
+            "id": "63",
+            "name": "George Russell",
+            "team": "Mercedes",
+            "image": "./assets/George_Russell.jpg",
+            "rating": 89,
+            "comment": "A proven technical driver that shouldnt be counted out of any race.",
+            "country":"United Kingdom"
+          },
+          {
+            "id": "14",
+            "name": "Fernando Alonso",
+            "team": "Aston Martin",
+            "image": "./assets/Fernando_Alonso.jpg",
+            "rating": 93,
+            "comment": "Alonso has discoveered the fountain of youth and can hang with the best in F1",
+            "country": "Spain"
+          },
+          {
+            "id": "44",
+            "name": "Lewis Hamilton",
+            "team": "Mercedes",
+            "image": "./assets/Lewis_Hamilton.jpg",
+            "rating": 98,
+            "comment": "7-world championships later and Hamilton still has the same killer instinct. The GOAT.",
+            "country": "United Kingdom"
+          },
+          {
+            "id": "18",
+            "name": "Lance Stroll",
+            "team": "Aston Martin",
+            "image": "./assets/Lance_Stroll.jpg",
+            "rating": 85,
+            "comment": "Can deliver a stellar performance given the right conditions, but very inconsistent.",
+            "country": "Canada"
+          },
+          {
+            "id": "22",
+            "name": "Yuki Tsunoda",
+            "team": "RB",
+            "image": "./assets/Yuki_Tsunoda.jpg",
+            "rating": 88,
+            "comment": "He's proven he belongs, now hes shooting for spot on a top team while constantly out performing drivers with superior cars.",
+            "country": "Japan"
+          },
+          {
+            "id": "27",
+            "name": "Nico Hulkenberg",
+            "team": "Haas F1 Team",
+            "image": "./assets/Nico_Hulkenberg.jpg",
+            "rating": 86,
+            "comment": "Sophomore driver looking to prove he belongs at the top after a successful first year.",
+            "country": "Germany"
+          },
+          {
+            "id": "20",
+            "name": "Kevin Magnussen",
+            "team": "Haas F1 Team",
+            "image": "./assets/Kevin_Magnussen.jpg",
+            "rating": 84,
+            "comment": "They call him The Viking for a reason. A ferocious driver with zero fear.",
+            "country": "Denmark"
+          },
+          {
+            "id": "23",
+            "name": "Alexander Albon",
+            "team": "Williams",
+            "image": "./assets/Alexander_Albon.jpg",
+            "rating": 87,
+            "comment": "He's got the lead role he wants, now is looking to build success with a historic team.",
+            "country": "Thailand"
+          },
+          {
+            "id": "24",
+            "name": "Zhou Guanyu",
+            "team": "Kick Sauber",
+            "image": "./assets/Zhou_Guanyu.jpg",
+            "rating": 80,
+            "comment": "Has untapped potential that has yet to be put on display.",
+            "country": "China"
+          },
+          {
+            "id": "3",
+            "name": "Daniel Ricciardo",
+            "team": "RB",
+            "image": "./assets/Daniel_Ricciardo.jpg",
+            "rating": 84,
+            "comment": "After a strong start to his career Ricciardo is looking to get things back on track after a few down years.",
+            "country": "Australia"
+          },
+          {
+            "id": "31",
+            "name": "Esteban Ocon",
+            "team": "Alpine",
+            "image": "./assets/Esteban_Ocon.jpg",
+            "rating": 86,
+            "comment": "Has beat the odds at every level and now looks to continue his underdog story.",
+            "country": "France"
+          },
+          {
+            "id": "10",
+            "name": "Pierre Gasly",
+            "team": "Alpine",
+            "image": "./assets/Pierre_Gasly.jpg",
+            "rating": 82,
+            "comment": "A product of the Red Bull youth circuit who recently secured a expanded role looks to continue his career progression.",
+            "country": "France"
+          },
+          {
+            "id": "77",
+            "name": "Valtteri Bottas",
+            "team": "Kick Sauber",
+            "image": "./assets/Valtteri_Bottas.jpg",
+            "rating": 84,
+            "comment": "As a former top driver, Bottas brings a veteran presence that should not be overlooked.",
+            "country": "Finland"
+          },
+          {
+            "id": "2",
+            "name": "Logan Sargeant",
+            "team": "Williams",
+            "image": "./assets/Logan_Sargeant.jpg",
+            "rating": 78,
+            "comment": "As a rookie last year, Sargeant had struggles but showed flashes of potential.",
+            "country": "United States"
+          }
+      ]
+   
+}

@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+}
+
+h1 {
+    color: #dc0000; /* Formula 1 red */
+}
+
+.driver {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #dc0000; /* Formula 1 red */
+    border-radius: 10px;
+    position: relative; 
+}
+
+.driver img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.skill-popup {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    color: #dc0000; /* Formula 1 red */
+    padding: 10px;
+    border: 2px solid #dc0000; /* Formula 1 red */
+    border-radius: 5px;
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%);
+    top: calc(100% + 5px); /* Position below the image */
+    left: 50%; /* Align with the center of the image */
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}

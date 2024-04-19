@@ -1,8 +1,9 @@
+// Wait for the DOM to be fully loaded before executing
 document.addEventListener('DOMContentLoaded', function() {
+    // Get refrences to elements in the HTML file
     const searchBar = document.getElementById('search-bar');
     const driversList = document.getElementById('drivers-list');
     const selectDriversButton = document.getElementById('selectDriversButton');
-    const randomizeTeamsButton = document.getElementById('randomizeTeamsButton');
     const simulateRaceButton = document.getElementById('simulateRaceButton');
     const userTeamContainer = document.getElementById('userTeam');
     const raceResultsContainer = document.getElementById('raceResults');
@@ -11,17 +12,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to display driver's full details
     function displayDriverDetails(event) {
+        // Get the id of the clicked on driver
         const driverId = event.currentTarget.dataset.id;
+        // Find the driver object with the id
         const driver = drivers.find(driver => driver.id === driverId);
+        // Display driver details in the aleert box
         alert(`Name: ${driver.name}\nTeam: ${driver.team}\nRating: ${driver.rating}\nComment: ${driver.comment}\nCountry: ${driver.country}`);
     }
 
     // Function to show/hide driver's skill points on mouse over/out
     function toggleSkillPoints(event, drivers) {
+        // Gets the id of driver 
         const driverId = event.currentTarget.dataset.id;
+        // Finds the driver with the matching id
         const driver = drivers.find(driver => driver.id === driverId);
-        const skillPoints = event.currentTarget.nextElementSibling; // Targeting the skill-points div next to the image
+        // Get the skill-points div next to the image
+        const skillPoints = event.currentTarget.nextElementSibling;
 
+
+        // Show or hide skill points based on the event type
         if (event.type === 'mouseover') {
             skillPoints.textContent = `Driver rating: ${driver.rating}`;
             skillPoints.style.display = 'block';
@@ -34,16 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function attachMouseEvents(drivers) {
         const driverImages = document.querySelectorAll('.driver img');
         driverImages.forEach(image => {
+            // mouseover event shows skill points
             image.addEventListener('mouseover', event => toggleSkillPoints(event, drivers));
+            // mouseout event hides skill points
             image.addEventListener('mouseout', event => toggleSkillPoints(event, drivers));
-            image.addEventListener('click', displayDriverDetails); // Add click event listener to the image
+            // Click event listener displays driver details
+            image.addEventListener('click', displayDriverDetails); 
         });
     }
 
     // Function to filter drivers based on search bar input
     function filterDrivers(event) {
+        // Gets user input
         const searchText = event.target.value.toLowerCase();
+        // filters driver whose name includes searched value
         const filteredDrivers = drivers.filter(driver => driver.name.toLowerCase().includes(searchText));
+        // Display filtered
         displayDrivers(filteredDrivers);
     }
 
@@ -161,8 +176,9 @@ function simulateRace() {
             displayDrivers(drivers);
             searchBar.addEventListener('input', filterDrivers);
             selectDriversButton.addEventListener('click', selectDrivers);
-            randomizeTeamsButton.addEventListener('click', randomizeTeams);
+           
             simulateRaceButton.addEventListener('click', simulateRace);
         })
         .catch(error => console.error('Error fetching drivers data:', error));
+        
 });
